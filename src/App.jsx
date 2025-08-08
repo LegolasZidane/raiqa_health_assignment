@@ -1,33 +1,59 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
 
 function App() {
   const [count, setCount] = useState(0)
-
+//F5CBCB
+//748DAE
+//9ECAD6
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+
+      <div className="bg-[#F5CBCB] counter w-1/3 h-1/5 flex flex-col justify-evenly">
+
+        <div className="heading-counter">
+          <h1 className="bg-[#748DAE] inline rounded-lg">Counter App</h1>
+        </div>
+
+        <div className="mid-counter flex justify-evenly">
+          <button onClick={() => setCount((count) => count + 1)}>
+            incr
+          </button>
+          <h1>{count}</h1>
+          <button onClick={() => setCount((count) => count + 1)}>
+            incr
+          </button>
+        </div>
+
+        <div className="end-counter flex justify-center">
+          <button>
+            Add
+          </button>
+        </div>
+
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+
+      <div className="bg-[#F5CBCB] list w-1/3 h-3/5 flex flex-col">
+
+        <div className="heading-list flex items-center justify-evenly py-4">
+
+          <button>
+            Add
+          </button>
+          <h1>List</h1>
+          <button>
+            Add
+          </button>
+
+        </div>
+
+        <div className="mid-list flex-col">
+
+          
+
+        </div>
+
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
     </>
   )
 }
