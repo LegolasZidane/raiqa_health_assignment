@@ -1,54 +1,63 @@
 import { useState } from 'react';
+import Counter from './components/Counter';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [ list, setList ] = useState([]);
+  const [ sort, setSort ] = useState(true);
+//FFEAEA
 //F5CBCB
 //748DAE
 //9ECAD6
+
+  function handleAdd(count){
+
+    if( count === 0 )
+      return;
+
+      setList((prev) => prev.filter((item) => count !== item));
+      setList((prev) => [...prev, count]);
+      console.log(list);
+
+  }
+
+  function handleSort(){
+    
+    if( sort ){
+
+      setList((prev) => prev.sort((a,b) => a - b));
+      setSort((prev) => !prev);
+
+    } else {
+
+      setList((prev) => prev.sort((a,b) => b - a));
+      setSort((prev) => !prev);
+
+    }
+
+  }
+
   return (
     <>
+      <Counter onAdd={handleAdd}/>
 
-      <div className="bg-[#F5CBCB] counter w-1/3 h-1/5 flex flex-col justify-evenly">
+      <div className="bg-[#F5CBCB] list w-1/3 h-3/5 flex flex-col rounded-md">
 
-        <div className="heading-counter">
-          <h1 className="bg-[#748DAE] inline rounded-lg">Counter App</h1>
-        </div>
+        <div className="heading-list bg-[#748DAE] rounded-lg flex items-center justify-evenly py-4">
 
-        <div className="mid-counter flex justify-evenly">
-          <button onClick={() => setCount((count) => count + 1)}>
-            incr
-          </button>
-          <h1>{count}</h1>
-          <button onClick={() => setCount((count) => count + 1)}>
-            incr
-          </button>
-        </div>
-
-        <div className="end-counter flex justify-center">
-          <button>
-            Add
-          </button>
-        </div>
-
-      </div>
-
-      <div className="bg-[#F5CBCB] list w-1/3 h-3/5 flex flex-col">
-
-        <div className="heading-list flex items-center justify-evenly py-4">
-
-          <button>
-            Add
+          <button onClick={() => setList(() => [])} className="rounded-lg">
+            Reset
           </button>
           <h1>List</h1>
-          <button>
-            Add
+          <button onClick={handleSort}>
+            Sort {sort ? "ASC" : "DESC"}
           </button>
 
         </div>
 
-        <div className="mid-list flex-col">
+        <div className="mid-list flex-col h-full w-full flex flex-col items-center">
 
-          
+          {list.map((item) => <p className="bg-[#748DAE] inline rounded-lg">{item}</p>)}
 
         </div>
 
