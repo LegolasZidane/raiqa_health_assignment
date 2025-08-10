@@ -5,6 +5,8 @@ function App() {
 
   const [ list, setList ] = useState([]);
   const [ sort, setSort ] = useState(true);
+  const [ max, setMax ] = useState(-1);
+  const [ min, setMin ] = useState(50000);
 //FFEAEA
 //F5CBCB
 //748DAE
@@ -16,6 +18,12 @@ function App() {
       return;
 
       setList((prev) => prev.filter((item) => count !== item));
+
+      if( max < count )
+        setMax(count);
+      if( min > count )
+        setMin(count);
+      
       setList((prev) => [...prev, count]);
       console.log(list);
 
@@ -41,7 +49,7 @@ function App() {
     <>
       <Counter onAdd={handleAdd}/>
 
-      <div className="bg-[#F5CBCB] list w-1/3 h-3/5 flex flex-col rounded-md">
+      <div className="bg-[#F5CBCB] list w-1/4 h-3/5 flex flex-col rounded-md">
 
         <div className="heading-list bg-[#748DAE] rounded-lg flex items-center justify-evenly py-4">
 
@@ -57,7 +65,14 @@ function App() {
 
         <div className="mid-list flex-col h-full w-full flex flex-col items-center">
 
-          {list.map((item) => <p className="bg-[#748DAE] inline rounded-lg">{item}</p>)}
+          {list.map((item) => {
+            
+            if( item === max || item === min )
+              return <p className="bg-[#748DAE] p-2 inline rounded-2xl">{item}</p>
+            else
+              return <p className="text-black inline rounded-lg">{item}</p>
+
+          })}
 
         </div>
 

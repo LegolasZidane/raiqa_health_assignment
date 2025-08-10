@@ -16,17 +16,17 @@ export default function Counter(props){
   }
 
     return (
-        <div className="bg-[#F5CBCB] counter w-1/3 h-1/5 flex flex-col justify-evenly rounded-md">
+        <div className="bg-[#F5CBCB] counter w-1/4 h-1/5 flex flex-col justify-evenly rounded-md">
             <div className="heading-counter bg-[#748DAE] rounded-lg flex justify-evenly">
                 <h1>Counter App</h1>
             </div>
 
-            <div className="mid-counter flex justify-evenly">
-                <button className="bg-[#748DAE] rounded-lg" onClick={() => handleClick('incr')}>
+            <div className="mid-counter flex justify-evenly text-center">
+                <button className="bg-[#748DAE] w-8 h-8 rounded-full" onClick={() => handleClick('incr')}>
                     +
                 </button>
-                <h1 className="bg-[#748DAE] rounded-lg">{count}</h1>
-                <button className="bg-[#748DAE] rounded-lg" onClick={() => handleClick('decr')}>
+                <h1 className="bg-[#748DAE] w-8 h-8 rounded-full">{count}</h1>
+                <button className="bg-[#748DAE] w-8 h-8 rounded-full" onClick={() => handleClick('decr')}>
                     -
                 </button>
             </div>
