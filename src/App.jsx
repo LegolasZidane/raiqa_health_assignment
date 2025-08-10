@@ -49,7 +49,7 @@ function App() {
     <>
       <Counter onAdd={handleAdd}/>
 
-      <div className="bg-[#F5CBCB] list w-1/4 h-3/5 flex flex-col rounded-md">
+      <div className="bg-[#F5CBCB] border-4 border-[#748DAE] list w-1/4 h-3/5 flex flex-col rounded-md">
 
         <div className="heading-list bg-[#748DAE] rounded-lg flex items-center justify-evenly py-4">
 
